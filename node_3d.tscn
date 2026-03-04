@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c8kv7ry2bbjah"]
+
+[ext_resource type="Script" uid="uid://d4jb5j0gvttet" path="res://hello_wordl.gd" id="1_a202f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
+
+[node name="Node3D" type="Node3D" unique_id=2103683623]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1406815757]
+transform = Transform3D(1, 0, 0, 0, 0.13147785, -0.9913191, 0, 0.9913191, 0.13147785, 0.7263053, 0.2929268, -0.02263832)
+mesh = SubResource("BoxMesh_4xowi")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=913465783]
+transform = Transform3D(0.9975723, 0.05970708, -0.035841893, -0.058517013, 0.9977281, 0.03338225, 0.037753623, -0.031203847, 0.9987998, 0, 0, 1.7658488)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=940252339]
+transform = Transform3D(1, 0, 0, 0, 0.28782853, 0.95768195, 0, -0.95768195, 0.28782853, 0, 1.121444, 0)
+
+[node name="Rtotate Cub" type="Node" parent="." unique_id=1963272851 node_paths=PackedStringArray("what_to_rotate")]
+script = ExtResource("1_a202f")
+what_to_rotate = NodePath("../MeshInstance3D")
+
+[node name="Button" type="Button" parent="." unique_id=840070522]
+anchors_preset = -1
+anchor_right = 0.20400001
+anchor_bottom = 0.21900001
+offset_right = -17.00801
+offset_bottom = -52.912003
+text = "Bonjour"
+
+[connection signal="button_down" from="Button" to="Rtotate Cub" method="dit_bonjour"]
